@@ -27,4 +27,12 @@ The options in this menu are related to the ones that an air traffic controller 
 In this menu the operations are more related to a plane pilot's job.     
 - Turn on or turn off the plane's engine.     
 - Speed up or slow down. The engine has to be on.     
-- 
+- Change height. First of all, the engine has to be on. Then, if the desired height is more than 500 meters, it's indispensable to hide the landing gear. If it's 0 meters, means that the user wants to land, so the plane must be inside the landing track coordinates and the speed has to be less than 200km/h.    
+- Fold/unfold landing gear. This can't be unfolded over 500m or 300km/h.    
+- Place the plane with X/Y coordinates. The plane must be inside the airspace (1000x1000), or the plane will be deleted.   
+
+## Project's structure
+
+As I said before, the main class, called with that same name `Main.java`, is for choosing between the two menus, each one with it's own class: `Airspace.java` (controller menu) and `PlaneManagement.java`. Those have their corresponding operations explained in the previous section, that are choosen by the menu number.This leads to a method using a `switch` statement.   
+But the most important class in the project is `Plane.java`, the central object, each one with its own features, translated in attributes. As there are two types of the plane in this simulation, this class has two children: `CommercialPlane.java` and `MilitaryPlane.java`. They have similar features like the model name or the license plate number, but differ in others. For example, a military plane doesn't have passengers, but have missiles, unlike the commercial plane.      
+Another important object is `Coordinate.java`, which gives the position of the plane or demarcates the landing track (`LandingTrack.java`). 
